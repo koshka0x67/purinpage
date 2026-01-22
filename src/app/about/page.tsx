@@ -14,14 +14,15 @@ export default function AboutPage() {
                         <div className="absolute inset-0 bg-[var(--accent-pink)] opacity-10 animate-pulse"></div>
                     </div>
                     <div className="text-center md:text-left">
-                        <h2 className="text-2xl md:text-[2.5rem] font-bold mb-4 md:mb-6 text-[var(--accent-pink)] border-b border-[var(--accent-dim)] inline-block pb-2">SYS ADMIN SIF</h2>
+                        <h2 className="text-2xl md:text-[2.5rem] font-bold mb-4 md:mb-6 text-[var(--accent-pink)] border-b border-[var(--accent-dim)] inline-block pb-2">
+                            hai, i'm Sif
+                        </h2>
                         <p className="text-[var(--foreground)] text-base md:text-lg leading-relaxed mb-4 md:mb-6">
-                            Welcome to the <strong>Wired</strong>. This is your personal nexus for information retrieval and system management.
-                            Inspired by the visual protocols of <em>Serial Experiments Lain</em>.
+                            i hope you find something useful in this site. i’ll post my personal tools here soon as well. baii 👋
                         </p>
                         <div className="flex gap-4 justify-center md:justify-start">
-                            <div className="px-4 py-2 border border-[var(--accent-pink)] text-[var(--accent-pink)] text-sm">STATUS: ONLINE</div>
-                            <div className="px-4 py-2 border border-[var(--accent-pink)] text-[var(--accent-pink)] text-sm animate-pulse">NETWORK: SECURE</div>
+                            <div className="px-4 py-2 border border-[var(--accent-pink)] text-[var(--accent-pink)] text-sm">STATUS: online-ish</div>
+                            <div className="px-4 py-2 border border-[var(--accent-pink)] text-[var(--accent-pink)] text-sm animate-pulse">NETWORK: secure… probably</div>
                         </div>
                     </div>
                 </div>

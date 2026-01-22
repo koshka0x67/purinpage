@@ -2,7 +2,7 @@
 
 export default function ToolsPage() {
     return (
-        <div className="min-h-screen w-screen flex flex-col items-center justify-center p-4 md:p-8 pt-24 md:pt-32 pb-20 overflow-y-auto">
+        <div className="min-h-screen w-screen flex flex-col items-center justify-center p-4 md:p-8 pt-20 md:pt-24 pb-20 overflow-y-auto">
             <div className="max-w-[1200px] mx-auto w-full flex items-center justify-center">
                 <div className="glass-panel p-10 md:p-20 text-center w-full max-w-2xl border-2 border-[var(--accent-dim)]">
                     <div className="w-32 h-32 md:w-48 md:h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[var(--accent-pink)] shadow-[0_0_30px_var(--accent-pink)]">

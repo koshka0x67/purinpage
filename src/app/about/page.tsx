@@ -2,7 +2,7 @@
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen w-screen flex flex-col items-center justify-center p-4 md:p-8 pt-24 md:pt-32 pb-20 overflow-y-auto">
+        <div className="min-h-screen w-screen flex flex-col items-center justify-center p-4 md:p-8 pt-20 md:pt-24 pb-20 overflow-y-auto">
             <div className="max-w-[1200px] mx-auto w-full flex items-center justify-center">
                 <div className="glass-panel p-8 md:p-16 w-full max-w-4xl flex flex-col md:flex-row gap-8 md:gap-12 items-center border border-[var(--wired-grid)]">
                     <div className="w-32 h-32 md:w-48 md:h-48 bg-[var(--background)] rounded-full flex items-center justify-center border-4 border-[var(--accent-pink)] shadow-[0_0_30px_var(--accent-pink)] shrink-0 overflow-hidden relative group">

@@ -12,8 +12,14 @@ export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
 
     const handleLogout = async () => {
-        await supabase.auth.signOut();
-        router.replace("/login");
+        try {
+            await supabase.auth.signOut();
+        } catch (error) {
+            console.error("Error signing out:", error);
+        } finally {
+            router.replace("/login");
+            router.refresh(); // Ensure state is cleared on client
+        }
     };
 
     useEffect(() => {

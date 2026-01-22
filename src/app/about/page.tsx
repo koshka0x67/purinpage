@@ -18,7 +18,7 @@ export default function AboutPage() {
                             hai, i'm Sif
                         </h2>
                         <p className="text-[var(--foreground)] text-base md:text-lg leading-relaxed mb-4 md:mb-6">
-                            i hope you find something useful in this site. i’ll post my personal tools here soon as well. baii 👋
+                            i hope you find something useful in this site. i’ll probably post my personal tools here soon as well. baii
                         </p>
                         <div className="flex gap-4 justify-center md:justify-start">
                             <div className="px-4 py-2 border border-[var(--accent-pink)] text-[var(--accent-pink)] text-sm">STATUS: online-ish</div>

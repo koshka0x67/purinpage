@@ -25,7 +25,10 @@ export default function Navbar() {
     }, []);
 
     // Helper to determine active state
+    // Helper to determine active state
     const isActive = (path: string) => pathname === path;
+
+    if (pathname === "/login") return null;
 
     return (
         <div className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? "bg-[var(--background)]/90 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-b border-[var(--accent-dim)]" : "bg-transparent border-b border-transparent"}`}>

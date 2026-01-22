@@ -23,8 +23,14 @@ export default function ProfilePage() {
             } else {
                 // Extract username from email
                 const email = session.user.email || "";
-                const extractedUsername = email.split("@")[0];
-                setUsername(extractedUsername);
+                // Decode if it was encoded
+                try {
+                    const extractedUsername = decodeURIComponent(email.split("@")[0]);
+                    setUsername(extractedUsername);
+                } catch (e) {
+                    // Fallback if decoding fails
+                    setUsername(email.split("@")[0]);
+                }
                 setLoading(false);
             }
         };
@@ -42,10 +48,10 @@ export default function ProfilePage() {
                 updates.password = newPassword;
             }
 
-            // If authenticating user changes email, they might need to re-verify if strict details are on,
-            // but here we are just swapping the dummy email.
+            // Encoded Update
             if (username) {
-                updates.email = `${username}@purin.local`;
+                // We must encode it again to match the login logic
+                updates.email = `${encodeURIComponent(username)}@purin.local`;
             }
 
             if (Object.keys(updates).length === 0) return;
@@ -68,80 +74,75 @@ export default function ProfilePage() {
 
     if (loading) {
         return (
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+            <div className="flex justify-center items-center h-screen">
                 Loading...
             </div>
         );
     }
 
     return (
-        <div style={{ padding: "40px", maxWidth: "600px", margin: "0 auto", minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <div className="min-h-screen w-screen flex flex-col items-center justify-center p-4 md:p-8 pt-20 md:pt-24 pb-20 overflow-y-auto">
+            <div className="max-w-[1200px] mx-auto w-full flex items-center justify-center">
+                <div className="glass-panel p-8 md:p-12 w-full max-w-xl flex flex-col gap-6 border border-[var(--wired-grid)]">
 
-            <div className="glass-panel" style={{ padding: "40px" }}>
-                <button
-                    onClick={handleBack}
-                    style={{
-                        background: "none",
-                        border: "none",
-                        color: "var(--secondary)",
-                        marginBottom: "20px",
-                        cursor: "pointer",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "5px"
-                    }}
-                >
-                    ← Back to Dashboard
-                </button>
-
-                <h1 style={{ fontSize: "2rem", fontWeight: 700, marginBottom: "10px" }}>My Profile</h1>
-                <p style={{ color: "var(--secondary)", marginBottom: "30px" }}>Manage your account settings</p>
-
-                {message && (
-                    <div style={{
-                        background: message.type === 'success' ? "rgba(50, 255, 50, 0.2)" : "rgba(255, 50, 50, 0.2)",
-                        border: message.type === 'success' ? "1px solid rgba(50, 255, 50, 0.5)" : "1px solid rgba(255, 50, 50, 0.5)",
-                        color: message.type === 'success' ? "#ccffcc" : "#ffcccc",
-                        padding: "10px",
-                        borderRadius: "8px",
-                        marginBottom: "20px",
-                        textAlign: "center"
-                    }}>
-                        {message.text}
-                    </div>
-                )}
-
-                <form onSubmit={handleUpdateProfile} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <div>
-                        <label style={{ display: "block", marginBottom: "8px", fontWeight: 500 }}>Username</label>
-                        <input
-                            type="text"
-                            className="input-field"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            placeholder="New Username"
-                        />
-                        <p style={{ fontSize: "0.8rem", color: "var(--secondary)", marginTop: "5px" }}>
-                            Changing this will change your login username.
-                        </p>
-                    </div>
-
-                    <div>
-                        <label style={{ display: "block", marginBottom: "8px", fontWeight: 500 }}>New Password</label>
-                        <input
-                            type="password"
-                            className="input-field"
-                            value={newPassword}
-                            onChange={(e) => setNewPassword(e.target.value)}
-                            placeholder="Leave blank to keep current"
-                        />
-                    </div>
-
-                    <button type="submit" className="primary-btn">
-                        Save Changes
+                    <button
+                        onClick={handleBack}
+                        className="self-start text-[var(--secondary)] hover:text-[var(--accent-pink)] transition-colors duration-200 flex items-center gap-2 mb-2"
+                    >
+                        ← Back to Dashboard
                     </button>
-                </form>
+
+                    <div className="flex flex-col items-center gap-6 mb-8 w-full border-b border-[var(--wired-grid)] pb-8">
+                        <h1 className="text-[2rem] md:text-[2.5rem] font-bold text-center text-[var(--accent-pink)]">MY PROFILE</h1>
+                        <div className="w-32 h-32 bg-[var(--background)] rounded-full flex items-center justify-center border-4 border-[var(--accent-pink)] shadow-[0_0_20px_var(--accent-pink)] shrink-0 overflow-hidden relative group">
+                            <img
+                                src="https://i.pinimg.com/736x/eb/10/74/eb1074d1a298aeaee9682e6f4b728437.jpg"
+                                alt="Avatar"
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-[var(--accent-pink)] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                        </div>
+                        <p className="text-[var(--foreground)] opacity-70 text-center text-sm uppercase tracking-widest">System Administrator</p>
+                    </div>
+
+                    {message && (
+                        <div className={`p-3 rounded-md text-center border ${message.type === 'success' ? "bg-green-500/10 border-green-500/50 text-green-200" : "bg-red-500/10 border-red-500/50 text-red-200"}`}>
+                            {message.text}
+                        </div>
+                    )}
+
+                    <form onSubmit={handleUpdateProfile} className="flex flex-col gap-6">
+                        <div>
+                            <label className="block mb-2 font-medium">Username</label>
+                            <input
+                                type="text"
+                                className="input-field w-full"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                placeholder="New Username"
+                            />
+                            <p className="text-xs text-[var(--secondary)] mt-1">
+                                Changing this will change your login username.
+                            </p>
+                        </div>
+
+                        <div>
+                            <label className="block mb-2 font-medium">New Password</label>
+                            <input
+                                type="password"
+                                className="input-field w-full"
+                                value={newPassword}
+                                onChange={(e) => setNewPassword(e.target.value)}
+                                placeholder="Leave blank to keep current"
+                            />
+                        </div>
+
+                        <button type="submit" className="primary-btn w-full py-3 mt-2">
+                            Save Changes
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     );
-}
+}   

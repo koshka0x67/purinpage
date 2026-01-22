@@ -78,21 +78,21 @@ export default function LoginPage() {
                 <h1 style={{ textAlign: "center", fontSize: "2rem", fontWeight: 700 }}>
                     {isLogin ? "Welcome Back" : "Join Purin Page"}
                 </h1>
-                <p style={{ textAlign: "center", color: "var(--secondary)", marginBottom: "10px" }}>
+                <p style={{ textAlign: "center", color: "var(--accent-pink)", marginBottom: "10px" }}>
                     {isLogin ? "Login with your username" : "Create an account to get started"}
                 </p>
 
                 {error && (
                     <div style={{
-                        background: "rgba(255, 50, 50, 0.2)",
-                        border: "1px solid rgba(255, 50, 50, 0.5)",
-                        color: "#ffcccc",
+                        background: "rgba(255, 0, 0, 0.1)",
+                        border: "1px solid red",
+                        color: "red",
                         padding: "10px",
-                        borderRadius: "8px",
                         fontSize: "0.9rem",
-                        textAlign: "center"
+                        textAlign: "center",
+                        textTransform: "uppercase"
                     }}>
-                        {error}
+                        ERROR: {error}
                     </div>
                 )}
 
@@ -119,17 +119,18 @@ export default function LoginPage() {
                     </button>
                 </form>
 
-                <p style={{ textAlign: "center", fontSize: "0.9rem", color: "var(--secondary)" }}>
+                <p style={{ textAlign: "center", fontSize: "0.8rem", color: "var(--accent-pink)", marginTop: "20px" }}>
                     {isLogin ? "Don't have an account? " : "Already have an account? "}
                     <button
                         onClick={() => setIsLogin(!isLogin)}
                         style={{
                             background: "none",
                             border: "none",
-                            color: "var(--accent)",
+                            color: "white",
                             cursor: "pointer",
                             fontWeight: 600,
                             textDecoration: "underline",
+                            fontFamily: "var(--font-main)"
                         }}
                     >
                         {isLogin ? "Sign Up" : "Login"}

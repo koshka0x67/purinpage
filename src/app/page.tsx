@@ -66,19 +66,16 @@ export default function Home() {
             href="/profile"
             className="primary-btn"
             style={{
-              background: "rgba(255, 255, 255, 0.1)",
-              border: "1px solid rgba(255, 255, 255, 0.2)",
               display: "flex",
               alignItems: "center",
               textDecoration: "none"
             }}
           >
-            Edit Profile
+            My Profile
           </a>
           <button
             onClick={handleLogout}
             className="primary-btn"
-            style={{ background: "rgba(255, 255, 255, 0.1)", border: "1px solid rgba(255, 255, 255, 0.2)" }}
           >
             Logout
           </button>
@@ -110,11 +107,11 @@ export default function Home() {
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "translateY(-5px)";
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
+              e.currentTarget.style.borderColor = "var(--text-main)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.05)";
+              e.currentTarget.style.borderColor = "var(--accent-pink)";
             }}
           >
             <span style={{ fontSize: "2.5rem" }}>{link.icon}</span>

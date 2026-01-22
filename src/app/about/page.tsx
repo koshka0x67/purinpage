@@ -14,7 +14,7 @@ export default function AboutPage() {
                         <div className="absolute inset-0 bg-[var(--accent-pink)] opacity-10 animate-pulse"></div>
                     </div>
                     <div className="text-center md:text-left">
-                        <h2 className="text-2xl md:text-[2.5rem] font-bold mb-4 md:mb-6 text-[var(--accent-pink)] border-b border-[var(--accent-dim)] inline-block pb-2">SYSTEM ADMINISTRATOR</h2>
+                        <h2 className="text-2xl md:text-[2.5rem] font-bold mb-4 md:mb-6 text-[var(--accent-pink)] border-b border-[var(--accent-dim)] inline-block pb-2">SYS ADMIN SIF</h2>
                         <p className="text-[var(--foreground)] text-base md:text-lg leading-relaxed mb-4 md:mb-6">
                             Welcome to the <strong>Wired</strong>. This is your personal nexus for information retrieval and system management.
                             Inspired by the visual protocols of <em>Serial Experiments Lain</em>.

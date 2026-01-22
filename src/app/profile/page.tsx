@@ -81,7 +81,7 @@ export default function ProfilePage() {
     }
 
     return (
-        <div className="min-h-screen w-screen flex flex-col items-center justify-center p-4 md:p-8 pt-20 md:pt-24 pb-20 overflow-y-auto">
+        <div className="min-h-screen w-screen flex flex-col items-center justify-center p-4 md:p-8 pt-4 md:pt-8 pb-20 overflow-y-auto">
             <div className="max-w-[1200px] mx-auto w-full flex items-center justify-center">
                 <div className="glass-panel p-8 md:p-12 w-full max-w-xl flex flex-col gap-6 border border-[var(--wired-grid)]">
 

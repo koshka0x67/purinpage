@@ -39,7 +39,7 @@ export default function Home() {
   }));
 
   return (
-    <div className="min-h-screen w-screen flex flex-col items-center p-4 md:p-8 pt-20 md:pt-24 pb-20 overflow-y-auto">
+    <div className="min-h-screen w-screen flex flex-col items-center p-4 md:p-8 pt-4 md:pt-8 pb-20 overflow-y-auto">
       <div className="max-w-[1200px] mx-auto w-full">
         <div className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-4 md:gap-6">
           {categories.map((cat) => (

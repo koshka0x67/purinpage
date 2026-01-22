@@ -38,7 +38,7 @@ export default function Navbar() {
 
     return (
         <div className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? "bg-[var(--background)]/90 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-b border-[var(--accent-dim)]" : "bg-transparent border-b border-transparent"}`}>
-            <div className="p-4 md:p-8 pb-4">
+            <div className="p-4 md:p-8 pb-0">
                 <header className="flex flex-col md:flex-row justify-between items-center mb-4 md:mb-6 max-w-[1400px] mx-auto w-full gap-4 md:gap-0">
                     <Link href="/" className="no-underline">
                         <h1 className="text-2xl md:text-[2.5rem] font-bold tracking-widest text-shadow-pink text-[var(--foreground)]">WIRED/SYS</h1>
@@ -60,7 +60,7 @@ export default function Navbar() {
                 </header>
 
                 {/* Navigation Bar */}
-                <nav className="flex justify-center gap-4 md:gap-12 text-sm md:text-[1.2rem] font-bold tracking-widest uppercase flex-wrap">
+                <nav className="flex justify-center gap-4 md:gap-12 text-sm md:text-[1.2rem] font-bold tracking-widest uppercase flex-wrap relative pb-4">
                     <Link
                         href="/"
                         className={`transition-all duration-300 cursor-pointer ${isActive('/') ? "text-[var(--accent-pink)] text-shadow-pink" : "text-[var(--text-main)] hover:text-[var(--accent-pink)] hover:text-shadow-pink"}`}
@@ -81,6 +81,7 @@ export default function Navbar() {
                     >
                         About Me
                     </Link>
+                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[var(--accent-pink)] to-transparent opacity-50"></div>
                 </nav>
             </div>
         </div>

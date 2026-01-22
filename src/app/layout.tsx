@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Purin Page",
-  description: "Personal dashboard and util links",
+  title: "WIRED/SYS",
+  description: "collection of my tools and usefull links",
 };
 
 import Navbar from "@/components/Navbar";

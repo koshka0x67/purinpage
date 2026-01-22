@@ -78,7 +78,7 @@ export default function LoginPage() {
                 }}
             >
                 <h1 style={{ textAlign: "center", fontSize: "2rem", fontWeight: 700 }}>
-                    {isLogin ? "Welcome Back" : "Join Purin Page"}
+                    {isLogin ? "Welcome Back" : "Join WIRED/SYS"}
                 </h1>
                 <p style={{ textAlign: "center", color: "var(--accent-pink)", marginBottom: "10px" }}>
                     {isLogin ? "Login with your username" : "Create an account to get started"}
